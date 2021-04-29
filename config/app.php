@@ -1,5 +1,7 @@
 <?php
 
+use App\Providers\SellerRepositoryServiceProvider;
+
 return [
 
     /*
@@ -163,8 +165,9 @@ return [
         Illuminate\View\ViewServiceProvider::class,
 
         /*
-         * Package Service Providers...
+         * Application Repository Providers...
          */
+        SellerRepositoryServiceProvider::class,
 
         /*
          * Application Service Providers...
