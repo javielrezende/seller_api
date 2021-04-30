@@ -1,6 +1,7 @@
 <?php
 
 use App\Providers\SaleRepositoryServiceProvider;
+use App\Providers\SaleServiceProvider;
 use App\Providers\SellerRepositoryServiceProvider;
 use App\Providers\SellerServiceProvider;
 
@@ -180,6 +181,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        SaleServiceProvider::class,
         SellerServiceProvider::class,
     ],
 
