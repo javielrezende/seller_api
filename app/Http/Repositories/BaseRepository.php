@@ -21,4 +21,15 @@ abstract class BaseRepository implements BaseRepositoryContract
     {
         return $this->model->create($data);
     }
+
+    /**
+     * Get by id
+     *
+     * @param int $id
+     * @param array $fields
+     */
+    public function getById(int $id, array $fields = ['*'])
+    {
+        return $this->model->select($fields)->find($id);
+    }
 }

@@ -15,4 +15,12 @@ interface BaseRepositoryContract
      * @param  array $data
      */
     public function create(array $data);
+
+    /**
+     * Get by id
+     *
+     * @param int $id
+     * @param array $fields
+     */
+    public function getById(int $id, array $fields = ['*']);
 }
