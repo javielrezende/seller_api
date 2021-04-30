@@ -9,6 +9,11 @@ class SellerService implements SellerServiceContract
 {
     protected $repository;
 
+    /**
+     * __construct
+     *
+     * @param  SellerRepositoryContract $repository
+     */
     public function __construct(SellerRepositoryContract $repository)
     {
         $this->repository = $repository;

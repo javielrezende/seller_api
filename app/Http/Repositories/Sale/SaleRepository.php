@@ -10,6 +10,11 @@ class SaleRepository extends BaseRepository implements SaleRepositoryContract
 {
     protected $model;
 
+    /**
+     * __construct
+     *
+     * @param  Sale $model
+     */
     public function __construct(Sale $model)
     {
         $this->model = $model;

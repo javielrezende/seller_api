@@ -12,6 +12,11 @@ class SaleController extends Controller
 {
     private $saleService;
 
+    /**
+     * __construct
+     *
+     * @param SaleServiceContract $saleService
+     */
     public function __construct(SaleServiceContract $saleService)
     {
         $this->saleService = $saleService;

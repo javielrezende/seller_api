@@ -9,6 +9,11 @@ class SellerRepository extends BaseRepository implements SellerRepositoryContrac
 {
     protected $model;
 
+    /**
+     * __construct
+     *
+     * @param  Seller $model
+     */
     public function __construct(Seller $model)
     {
         $this->model = $model;

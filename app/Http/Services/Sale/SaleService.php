@@ -14,6 +14,12 @@ class SaleService implements SaleServiceContract
     protected $repository;
     private $sellerService;
 
+    /**
+     * __construct
+     *
+     * @param SaleRepositoryContract $repository
+     * @param SellerServiceContract $sellerService
+     */
     public function __construct(
         SaleRepositoryContract $repository,
         SellerServiceContract $sellerService)
