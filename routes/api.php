@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SaleController;
 use App\Http\Controllers\SellerController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,5 +19,10 @@ Route::middleware('api')->group(function () {
     Route::prefix('seller')->group(function () {
         Route::get('/', [SellerController::class, 'list'])->name('seller.list');
         Route::post('/', [SellerController::class, 'store'])->name('seller.store');
+    });
+
+    Route::prefix('sale')->group(function () {
+        Route::get('/seller/{sellerId}', [SaleController::class, 'getSalesBySellerId'])->name('sale.getSalesBySellerId');
+        Route::post('/', [SaleController::class, 'store'])->name('sale.store');
     });
 });
