@@ -6,7 +6,15 @@ use Illuminate\Support\Facades\Log;
 
 trait LogTrait
 {
-    public function criticalLog($message, $class, $exceptionMessage)
+    /**
+     * Add critical log
+     *
+     * @param  string $message
+     * @param  string $class
+     * @param  string $exceptionMessage
+     * @return void
+     */
+    public function criticalLog(string $message, string $class, string $exceptionMessage)
     {
         Log::critical(
             "$message $class",

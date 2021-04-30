@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Repositories\Seller\SellerRepositoryContract;
 use App\Http\Requests\StoreSeller;
-use App\Http\Services\Seller\SellerServiceContract;
-use App\Models\Seller;
 use App\Traits\LogTrait;
 use Exception;
 use Illuminate\Http\JsonResponse;
