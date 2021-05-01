@@ -4,10 +4,11 @@ namespace App\Repositories;
 interface BaseRepositoryContract
 {
     /**
-     * Returns all record
+     * Returns all records
+     * @param  array $fields
      *
      */
-    public function all();
+    public function all(array $fields = ['*']);
 
     /**
      * Creates a record
