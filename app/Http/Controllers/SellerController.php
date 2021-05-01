@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Repositories\Seller\SellerRepositoryContract;
 use App\Http\Requests\StoreSeller;
+use App\Http\Services\Seller\SellerServiceContract;
 use App\Traits\LogTrait;
 use Exception;
 use Illuminate\Http\JsonResponse;
@@ -12,16 +12,16 @@ class SellerController extends Controller
 {
     use LogTrait;
 
-    private $sellerRepository;
+    private $sellerService;
 
     /**
      * __construct
      *
-     * @param  SellerRepositoryContract $sellerRepository
+     * @param  SellerServiceContract $sellerService
      */
-    public function __construct(SellerRepositoryContract $sellerRepository)
+    public function __construct(SellerServiceContract $sellerService)
     {
-        $this->sellerRepository = $sellerRepository;
+        $this->sellerService = $sellerService;
     }
 
     /**
@@ -32,7 +32,7 @@ class SellerController extends Controller
     public function list()
     {
         try {
-            $sellers = $this->sellerRepository->all();
+            $sellers = $this->sellerService->getAllWithCommission();
 
             return new JsonResponse(['data' => $sellers], 200);
         } catch (Exception $exception) {
@@ -54,16 +54,12 @@ class SellerController extends Controller
     public function store(StoreSeller $request)
     {
         try {
-            $data = [
-                'name' => $request->name,
-                'email' => $request->email
-            ];
-
-            $this->sellerRepository->create($data);
+            $seller = $this->sellerService->create($request);
 
             return new JsonResponse([
                 'code' => 'seller_created',
-                'message' => 'Vendedor cadastrado'
+                'message' => 'Vendedor cadastrado',
+                'data' => $seller
                 ], 201);
         } catch (Exception $exception) {
             $this->criticalLog('Failed to create a seller', SellerController::class, $exception->getMessage());
