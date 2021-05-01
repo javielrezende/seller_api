@@ -18,4 +18,20 @@ class SellerRepository extends BaseRepository implements SellerRepositoryContrac
     {
         $this->model = $model;
     }
+
+    /**
+     * Get all sellers with the total value of their sales
+     *
+     * @param  mixed $fiields
+     * @return void
+     */
+    public function getAllWithCommission(array $fiields = ['*'])
+    {
+        return $this->model
+            ->leftJoin('sales', 'sellers.id', '=', 'sales.seller_id')
+            ->selectRaw('sellers.id, sellers.name, sellers.email, sum(sales.commission_paid) as total_commission')
+            ->groupBy('sellers.id')
+            ->orderBy('total_commission', 'desc')
+            ->get();
+    }
 }
