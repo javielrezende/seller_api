@@ -29,6 +29,13 @@ class Sale extends Model
         'commission_paid' => 'decimal:2',
     ];
 
+     /**
+     * The attributes that should be hidden in arrays.
+     *
+     * @var array
+     */
+    protected $hidden = ['seller_id', 'updated_at', 'deleted_at'];
+
     /**
      * Get formated created_at
      *
