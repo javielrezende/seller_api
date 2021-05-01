@@ -4,12 +4,13 @@ namespace App\Repositories;
 abstract class BaseRepository implements BaseRepositoryContract
 {
     /**
-     * Returns all record
+     * Returns all records
+     * @param  array $fields
      *
      */
-    public function all()
+    public function all(array $fields = ['*'])
     {
-        return $this->model->all();
+        return $this->model->select($fields)->get();
     }
 
     /**

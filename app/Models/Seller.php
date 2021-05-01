@@ -18,4 +18,18 @@ class Seller extends Model
      */
     protected $fillable = ['name', 'email'];
 
+    /**
+     * The attributes that should be visible in arrays.
+     *
+     * @var array
+     */
+    protected $visible = ['id', 'name', 'email', 'total_commission'];
+
+    /**
+     * Get sales from seller.
+     */
+    public function sales()
+    {
+        return $this->hasMany(Sale::class);
+    }
 }
