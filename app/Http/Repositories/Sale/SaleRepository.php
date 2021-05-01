@@ -4,6 +4,7 @@ namespace App\Http\Repositories\Sale;
 
 use App\Models\Sale;
 use App\Repositories\BaseRepository;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 
 class SaleRepository extends BaseRepository implements SaleRepositoryContract
@@ -33,5 +34,20 @@ class SaleRepository extends BaseRepository implements SaleRepositoryContract
             ->with('seller')
             ->where('seller_id', $sellerId)
             ->get();
+    }
+
+    /**
+     * Get sales of the day
+     *
+     * @param  mixed $fields
+     * @return Collection
+     */
+    public function getSalesReportOfTheDay(array $fields = ['*'])
+    {
+        return $this->model->select($fields)
+            ->whereBetween('created_at', [
+                Carbon::now()->setHour(0)->setMinute(0)->setSecond(0),
+                Carbon::now()->setHour(23)->setMinute(59)->setSecond(59),
+            ])->get();
     }
 }
