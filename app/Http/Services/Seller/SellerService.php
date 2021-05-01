@@ -46,4 +46,20 @@ class SellerService implements SellerServiceContract
 
         return $seller;
     }
+
+    /**
+     * Creates a seller
+     *
+     * @param  mixed $data
+     * @return Seller
+     */
+    public function create($data)
+    {
+        $seller = $this->repository->create([
+            'name' => $data->name,
+            'email' => $data->email
+        ]);
+
+        return $seller;
+    }
 }

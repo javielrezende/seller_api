@@ -3,6 +3,7 @@
 namespace App\Http\Services\Seller;
 
 use App\Models\Seller;
+use Illuminate\Database\Eloquent\Collection;
 
 interface SellerServiceContract
 {
@@ -21,4 +22,12 @@ interface SellerServiceContract
      * @return Seller
      */
     public function getById(int $sellerId);
+
+    /**
+     * Creates a seller
+     *
+     * @param  mixed $data
+     * @return Seller
+     */
+    public function create($data);
 }
