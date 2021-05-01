@@ -44,7 +44,7 @@ class Sale extends Model
      */
     public function getCreatedAtAttribute($value)
     {
-        return Carbon::parse($value)->subHours(3)->format('d-m-Y H:i');
+        return Carbon::parse($value)->format('d-m-Y H:i');
     }
 
     /**
