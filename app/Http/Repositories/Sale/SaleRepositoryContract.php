@@ -14,4 +14,12 @@ interface SaleRepositoryContract extends BaseRepositoryContract
      * @return Collection
      */
     public function getSalesBySellerId(int $sellerId, array $fields = ['*']);
+
+    /**
+     * Get sales of the day
+     *
+     * @param  mixed $fields
+     * @return Collection
+     */
+    public function getSalesReportOfTheDay(array $fields = ['*']);
 }
