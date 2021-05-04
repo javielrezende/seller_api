@@ -7,15 +7,22 @@ Esta API utiliza Laravel. Documentação disponível em: <a href="https://larave
   
 ## Scripts úteis  :rocket:  
 
-### Primeiro acesso ao sistema  
+### Acesso ao sistema  
   
 **1**. Instala todas as dependências composer  
 `$ composer install`
   
-**2**. Para rodar as migrações  
+**2**. Copiar .env.example para .env  
+  
+**3**. Criar banco de dados para a aplicação com as especificações que se encontram no .env  
+  
+**4**. Para rodar as migrações  
 `$ php artisan migrate`  
   
-**3**. Inicia o servidor  
+**5**. Gerar a chave da aplicação  
+`$ php artisan key:generate`
+  
+**6**. Inicia o servidor  
 `$ php artisan serve`
   
 
