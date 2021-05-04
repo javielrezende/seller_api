@@ -26,5 +26,13 @@ Esta API utiliza Laravel. Documentação disponível em: <a href="https://larave
 `$ php artisan serve`
   
 
+### Testes automatizados  
+  
+**1**. Criar banco de dados para os testes - DATABASE: seller_api_test  
+  
+**2**. Para rodar os testes  
+`$ ./vendor/bin/phpunit`
+  
+
 ### Acessos  
 *  :rocket: Aplicação: http://localhost:8000
